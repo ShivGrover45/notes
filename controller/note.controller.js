@@ -27,6 +27,16 @@ export const getNotes=async(req,res,next)=>{
     
 }
 
+export const getNoteById=async(req,res,async)=>{
+    const {id}=req.params
+    try{
+        const getNote=await noteModel.findById(id)
+        res.json(getNote)
+    }catch(err){
+        console.log(err.message)
+    }
+}
+
 export const updateNotes=async(req,res,next)=>{
 
     try{
